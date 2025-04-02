@@ -7,4 +7,4 @@ load_dotenv()
 DEBUG = True
 
 # Database
-SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_HOST", "sqlite:///sqlite3.db")
+SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_HOST", "sqlite:///db.sqlite3")
