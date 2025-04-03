@@ -6,7 +6,7 @@ class ItemSchema(ma.SQLAlchemyAutoSchema):
     id = fields.Integer()
     name = fields.String(required=True, validate=[validate.Length(min=3)], error_messages={
         "required": "Name is required",
-        "invalid": "Name should be atleast 3 characters"
+        "invalid": "Name should be at least 3 characters"
     })
     price = fields.Float(required=True, validate=[validate.Range(min=0)])
     user_id = fields.Integer()

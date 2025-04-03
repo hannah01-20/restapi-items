@@ -27,7 +27,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
 class UserCreateSchema(UserSchema):
     password = fields.String(required=True, validate=[validate.Length(min=8)], error_messages={
         "required": "Password is required",
-        "invalid": "Password should be atleast 8 character"
+        "invalid": "Password should be at least 8 character"
     })
     re_password = fields.String(required=True, error_messages={
         "required": "Confirm password is required"

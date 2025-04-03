@@ -21,6 +21,6 @@ class RegisterService(Resource):
             db.session.commit()
         except ValidationError as e:
             message = e.messages.get("_schema", ["Error occured"])[0]
-            return {"message": message}
+            return {"message": message}, 401
             
         return {"message": "User successfully created"}

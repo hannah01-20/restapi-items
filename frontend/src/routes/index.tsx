@@ -1,9 +1,16 @@
-import { createFileRoute } from '@tanstack/react-router'
+
+import Index from '@/pages/Index'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
-  component: RouteComponent,
+  beforeLoad: () => {
+    const accesess = localStorage.getItem('access')
+    if (!accesess){
+      throw redirect({
+        to: "/login"
+      })
+    }
+  },
+  loader: async () => {},
+  component: Index,
 })
-
-function RouteComponent() {
-  return <div>Hello "/"!</div>
-}
