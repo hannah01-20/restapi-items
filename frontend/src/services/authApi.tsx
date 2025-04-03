@@ -9,7 +9,7 @@ interface RegisterData {
 }
 
 export const register = async (data: RegisterData)=>{
-    await API.post("/api/register/", data).
+    await API.post("/api/users/", data).
     then((response: any) => {
         console.log(response.data);
         toast.success(response.data.message);
