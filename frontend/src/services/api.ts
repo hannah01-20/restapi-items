@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API = axios.create({
-    baseURL: "restapi-backend.hannahflorano.me",
+    baseURL: "https://restapi-backend.hannahflorano.me",
     headers: {
         'Content-Type': 'application/json',
     },
