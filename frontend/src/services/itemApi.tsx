@@ -14,15 +14,16 @@ export const getItems = async () => {
 }
 
 export const getItem = async (id: string) => {
-    let item = null
-    await API.get(`/api/items/${id}/`).
+    const response = await API.get(`/api/items/${id}/`).
     then((response: any) => {
-        item = response.data
+        return response.data
     }).
     catch((error: any) => {
         toast.error(error.response.data.message || error.response.data.msg || "Failed to fetch item");
+
+        throw error.response
     });
-    return item
+    return response
 }
 
 interface addItemData {
