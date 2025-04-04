@@ -17,7 +17,7 @@ function ItemCard({id, name, price}: ItemCardProps) {
   let stringId = id.toString()
   return (
     <Link to="/items/$id" params={{id: stringId}}>
-      <Card className="h-64">
+      <Card className="h-64 hover:-translate-y-2 hover:bg-secondary-foreground hover:text-white active:bg-card-foreground transition-all">
         <CardHeader>
           <CardDescription className="text-center text-lg font-semibold">Item</CardDescription>
         </CardHeader>

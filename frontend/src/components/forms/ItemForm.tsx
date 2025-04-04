@@ -29,32 +29,61 @@ import { Input } from "../ui/input"
 
 import { addItem } from "@/services/itemApi"
 
-function AddForm() {
+import { deleteItem } from "@/services/itemApi"
+import toast from "react-hot-toast"
+
+interface ItemFormProps {
+    id?: string,
+    title: string,
+    description: string
+    name: string,
+    price: number,
+    type: string,
+    submitfunc?: (data: z.infer<typeof ItemSchema> , id?: string) => Promise<boolean> 
+}
+
+function ItemForm({
+    name = "", 
+    price = 0, 
+    submitfunc = addItem, 
+    type, 
+    title, 
+    description, 
+    id
+    }: ItemFormProps) {
     const form = useForm({
         resolver: zodResolver(ItemSchema),
         defaultValues: {
-            name: "",
-            price: 0,
+            name: name,
+            price: price,
         },
     })
     const navigate = useNavigate()
     const onSubmit = async (data: z.infer<typeof ItemSchema>) => {
-        const is_Success = await addItem(data)
-        if (is_Success) {
-            navigate({ to: "/" })
-        }
+        await submitfunc(data, id ).then(()=> {navigate({ to: "/" })})
     }
     const clearForm = () => {
         form.reset()
+    }
+    const onDelete = async () => {
+        await deleteItem(id).then(
+            ()=>{
+                toast.success("Item deleted successfully")
+                navigate({ to: "/" })
+            }).catch(
+                ()=>{
+                    toast.error("Failed to delete item")
+                }
+            )
     }
   return (
     <Card className="w-[90%] sm:w-1/4 shadow-md absolute top-[50%] left-[50%] -translate-1/2">
         <CardHeader>
             <CardTitle>
-                Create Item
+                {title}
             </CardTitle>
             <CardDescription>
-                Fill in the details to create a new item.
+                {description}
             </CardDescription>
         </CardHeader>
         <CardContent>
@@ -92,7 +121,11 @@ function AddForm() {
                     </div>
                     <div className="flex justify-between">
                         <Button type="button" onClick={clearForm} variant="outline">Clear</Button>
-                        <Button type="submit">Submit</Button>
+                        <div className="flex gap-3">
+                            {type === "update" ? <Button type="button" variant="destructive" onClick={onDelete}>Delete</Button> : "" }
+                        
+                            <Button type="submit">Submit</Button>
+                        </div>
                     </div>
                 </form>
             </Form>
@@ -101,4 +134,4 @@ function AddForm() {
   )
 }
 
-export default AddForm
+export default ItemForm

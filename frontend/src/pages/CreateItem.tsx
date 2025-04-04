@@ -1,6 +1,6 @@
-import AddForm from "@/components/forms/AddForm"
+import ItemForm from "@/components/forms/ItemForm"
 import Navbar from "@/components/Navbar"
-
+import { addItem } from "@/services/itemApi"
 
 function CreateItem() {
   return (
@@ -8,7 +8,13 @@ function CreateItem() {
         <Navbar />
         
         <div>
-            <AddForm />
+            <ItemForm 
+              name="" 
+              price={0.00} 
+              title="Create Item"
+              description="Fill in the details to create a new item."
+              type="create"
+              submitfunc={addItem} />
         </div>
     </main>
   )

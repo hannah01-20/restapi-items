@@ -30,7 +30,7 @@ function Index() {
       <div className="p-2 sm:p-8">
         <h1 className="text-xl font-semibold">Hello, {user.username}!</h1>
         <p className="text-muted-foreground">{user.email}</p>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-10 sm:p-16">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10 sm:p-16">
           {items.length ? 
             items.map((item)=>(
             <ItemCard key={item.id} id={item.id} name={item.name} price={item.price} />
