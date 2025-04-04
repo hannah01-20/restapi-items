@@ -12,3 +12,21 @@ export const getItems = async () => {
     });
     return items
 }
+
+interface addItemData {
+    name: string;
+    price: number;
+}
+
+export const addItem = async (data: addItemData) => {
+    let is_Success = false
+    await API.post("/api/items/", data).
+    then((response: any) => {
+        toast.success(response.data.msg || "Item created successfully");
+        is_Success = true
+    }).
+    catch((error: any) => {
+        toast.error(error.response.data.message || error.response.data.msg || "Failed to create item");
+    });
+    return is_Success
+}
