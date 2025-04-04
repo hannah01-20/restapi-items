@@ -5,6 +5,15 @@ import { getUserData } from '@/services/userApi'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
+  beforeLoad: ()=> {
+    const access = localStorage.getItem('access')
+    const refresh = localStorage.getItem('refresh')
+    if (access === null || refresh === null) {
+      throw redirect({
+        to: "/login"
+      })
+    }
+  },
   loader: async () => {
     const user = await getUserData()
     if (user === null) {
