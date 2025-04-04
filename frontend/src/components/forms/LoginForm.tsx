@@ -22,10 +22,18 @@ function LoginForm() {
   })
   const navigate = useNavigate()
   const onSubmit = async (data: z.infer<typeof LoginSchema>) => {
-    const is_Success = await login(data)
-    if (is_Success) {
-      navigate({ to: '/' })
-    }
+    toast.promise(
+      async () => {
+        await login(data)
+      },{
+        loading: "Logging in...",
+        success: () => {
+          navigate({ to: '/' })
+          return "Login successful"
+        },
+        error: (err) => err.data.message || "Login failed",
+      }
+    )
   }
 
   return (
