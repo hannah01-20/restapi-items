@@ -31,16 +31,15 @@ interface addItemData {
 }
 
 export const addItem = async (data: addItemData) => {
-    let is_Success = false
     await API.post("/api/items/", data).
     then((response: any) => {
-        toast.success(response.data.msg || "Item created successfully");
-        is_Success = true
+        // toast.success(response.data.msg || "Item created successfully");
+        return response.data
     }).
     catch((error: any) => {
-        toast.error(error.response.data.message || error.response.data.msg || "Failed to create item");
+        // toast.error(error.response.data.message || error.response.data.msg || "Failed to create item");
+        throw error.response
     });
-    return is_Success
 }
 
 export const updateItem = async (data: addItemData, id: string | undefined) => {

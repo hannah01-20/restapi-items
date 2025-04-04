@@ -39,7 +39,7 @@ interface ItemFormProps {
     name: string,
     price: number,
     type: string,
-    submitfunc?: (data: z.infer<typeof ItemSchema> , id?: string) => Promise<boolean> 
+    submitfunc?: (data: z.infer<typeof ItemSchema> , id?: string) => Promise<void> 
 }
 
 function ItemForm({
@@ -60,7 +60,32 @@ function ItemForm({
     })
     const navigate = useNavigate()
     const onSubmit = async (data: z.infer<typeof ItemSchema>) => {
-        await submitfunc(data, id ).then(()=> {navigate({ to: "/" })})
+        toast.promise(
+            async () =>{
+                await submitfunc(data, id)
+            },{
+                loading: "Loading...",
+                success: () => {
+                    let text = ""
+                    if (type === "update") {
+                        text = "Item updated successfully"
+                    } else {
+                        text = "Item created successfully"
+                    }
+                    navigate({ to: "/" })
+                    return text
+                },
+                error: (err) => {
+                    let text = ""
+                    if (type === "update") {
+                        text = "Failed to update item"
+                    } else {
+                        text = "Failed to create item"
+                    }
+                    return err.data.message || err.data.msg || text
+                }
+            }
+        )
     }
     const clearForm = () => {
         form.reset()
