@@ -26,3 +26,4 @@ def index():
     return {"message": "Hello from Items!"}
 
 from . import routes
+# from blocklist import BLOCKLIST

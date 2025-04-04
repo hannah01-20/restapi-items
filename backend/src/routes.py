@@ -1,6 +1,6 @@
 from . import api, app
 from .services.item import ItemsService, ItemService
-from .services.login import LoginService
+from .services.auth import LoginService
 from .services.user import UserService
 
 

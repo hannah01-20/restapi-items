@@ -36,3 +36,14 @@ export const login = async (data: {username: string, password: string})=>{
     });
     // return is_success
 }
+
+export const logout = async () => {
+    await API.post("/api/logout/").
+    then(() => {
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+    }).
+    catch((error: any) => {
+        toast.error(error.response.data.message || "Logout failed");
+    });
+}
