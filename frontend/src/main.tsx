@@ -5,11 +5,13 @@ import NotFound from './pages/NotFound'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
+import Spinner from './components/Spinner'
 
 // Create a new router instance
 const router = createRouter({ 
   routeTree,
   defaultNotFoundComponent: NotFound,
+  defaultPendingComponent: Spinner,
  })
 
 // Register the router instance for type safety

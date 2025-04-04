@@ -14,7 +14,6 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as RegisterImport } from './routes/register'
 import { Route as LoginImport } from './routes/login'
 import { Route as CreateItemImport } from './routes/create-item'
-import { Route as AuthenticatedImport } from './routes/_authenticated'
 import { Route as IndexImport } from './routes/index'
 import { Route as ItemsIdImport } from './routes/items.$id'
 
@@ -35,11 +34,6 @@ const LoginRoute = LoginImport.update({
 const CreateItemRoute = CreateItemImport.update({
   id: '/create-item',
   path: '/create-item',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AuthenticatedRoute = AuthenticatedImport.update({
-  id: '/_authenticated',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -64,13 +58,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthenticatedImport
       parentRoute: typeof rootRoute
     }
     '/create-item': {
@@ -108,7 +95,6 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof AuthenticatedRoute
   '/create-item': typeof CreateItemRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -117,7 +103,6 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof AuthenticatedRoute
   '/create-item': typeof CreateItemRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -127,7 +112,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/_authenticated': typeof AuthenticatedRoute
   '/create-item': typeof CreateItemRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
@@ -136,23 +120,15 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/create-item' | '/login' | '/register' | '/items/$id'
+  fullPaths: '/' | '/create-item' | '/login' | '/register' | '/items/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/create-item' | '/login' | '/register' | '/items/$id'
-  id:
-    | '__root__'
-    | '/'
-    | '/_authenticated'
-    | '/create-item'
-    | '/login'
-    | '/register'
-    | '/items/$id'
+  to: '/' | '/create-item' | '/login' | '/register' | '/items/$id'
+  id: '__root__' | '/' | '/create-item' | '/login' | '/register' | '/items/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthenticatedRoute: typeof AuthenticatedRoute
   CreateItemRoute: typeof CreateItemRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
@@ -161,7 +137,6 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthenticatedRoute: AuthenticatedRoute,
   CreateItemRoute: CreateItemRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
@@ -179,7 +154,6 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_authenticated",
         "/create-item",
         "/login",
         "/register",
@@ -188,9 +162,6 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/_authenticated": {
-      "filePath": "_authenticated.tsx"
     },
     "/create-item": {
       "filePath": "create-item.tsx"
