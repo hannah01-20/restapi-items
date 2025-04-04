@@ -3,7 +3,7 @@ import RegisterForm from "@/components/forms/RegisterForm"
 
 function Register() {
   return (
-    <main>
+    <main className="bg-accent">
       <RegisterForm />
     </main>
   )

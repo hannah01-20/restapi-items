@@ -4,7 +4,7 @@ import LoginForm from "@/components/forms/LoginForm"
 
 function Login() {
   return (
-    <main>
+    <main className="bg-accent">
         <LoginForm />
     </main>
   )
