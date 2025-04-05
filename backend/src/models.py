@@ -4,8 +4,8 @@ from sqlalchemy.ext.hybrid import hybrid_property
 class UserModel(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, unique=True, nullable=False)
-    email = db.Column(db.String, unique=True, nullable=False)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
     _password = db.Column("password", db.String(250), nullable=False)
     items = db.relationship("ItemModel", backref="owner", lazy="select")
 

@@ -1,3 +1,7 @@
+"""
+USER VALIDATIONS
+"""
+
 from .. import ma
 from marshmallow import fields, validate, validates_schema, ValidationError
 from ..models import UserModel
@@ -24,6 +28,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
         exclude = ["id", "_password"]
 
+# INHERIET FROM USER SCHEMA
 class UserCreateSchema(UserSchema):
     password = fields.String(required=True, validate=[validate.Length(min=8)], error_messages={
         "required": "Password is required",

@@ -1,3 +1,7 @@
+"""
+ITEM VALIDATIONS 
+"""
+
 from .. import ma
 from marshmallow import fields, validate
 from ..models import ItemModel

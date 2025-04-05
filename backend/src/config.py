@@ -1,11 +1,13 @@
+""" WEB APP'S CONFIGURATIONS AND SETTINGS """
+
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
 # development setting
-DEBUG = os.getenv("DEBUG_MODE", False)
-SECRET_KEY = os.getenv("SECRET_KEY", "your_secret_key")
+DEBUG = os.getenv("DEBUG_MODE", True)
+SECRET_KEY = os.getenv("SECRET_KEY", "your_secret_key_rest_api_items")
 
 # Database
 SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///db.sqlite3")

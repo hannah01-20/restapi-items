@@ -1,3 +1,7 @@
+"""
+HANDLES USER BUSINESS LOGICS
+"""
+
 from flask_restful import Resource, reqparse
 from marshmallow import ValidationError
 from flask_jwt_extended import get_jwt_identity
@@ -14,6 +18,7 @@ request.add_argument("re_password", type=str, required=True)
 class UserService(Resource):
     @jwt_required()
     def get(self):
+        """ RETURN USER DETAILS """
         user_id = get_jwt_identity()
         user = UserModel.query.filter_by(id=user_id).first()
         schema = UserSchema()
@@ -21,6 +26,7 @@ class UserService(Resource):
         return schema.dump(user)
     
     def post(self):
+        """ USER ACCOUNT CREATION """
         data = request.parse_args()
         user_schema = UserCreateSchema()
     
