@@ -25,9 +25,13 @@ Frontend endpoints:
 
 Note: 
     Since I am using github pages for frontend deployment it serves at: 
+
     https://hannah01-20.github.io/restapi-items/
-    then you access the other routes like:
+
+    then you reload or access the other routes directly to url like:
+
     https://hannah01-20.github.io/restapi-items/login/
+    
     this will break the page and you will get 404 File not Found.
 
 Fetching:
