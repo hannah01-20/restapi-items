@@ -4,6 +4,7 @@ Flask, React.js, Azure MySQL (Deployment), and SQLite (Development)
 
 ### Frontend
 React 19.0.0 
+
 TypeScript - A devtool for safe typing.
 
 UI:
@@ -16,11 +17,11 @@ Router:
 I used TanStack-router to manage routes and block users from accessing certain routes when they're not authenticated.
 
 Frontend endpoints:
-/
-/login/
-/register/
-/item/$id/
-/create-item/
+- /
+- /login/
+- /register/
+- /item/$id/
+- /create-item/
 
 Note: 
     Since I am using github pages for frontend deployment it serves at: 
@@ -28,7 +29,7 @@ Note:
     then you access the other routes like:
     https://hannah01-20.github.io/restapi-items/login/
     this will break the page and you will get 404 File not Found.
-    
+
 Fetching:
 I used axios, a fetching library.
 
@@ -54,7 +55,7 @@ Together with other library extensions:
 
 Features:
 - CRUD on items
-- JWT Authentication (GET, POST)
+- JWT Authentication (Register, Login, and Logout)
 
 The backend has the following endpoints:
 - GET, POST /api/items/
