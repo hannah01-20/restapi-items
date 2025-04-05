@@ -1,9 +1,36 @@
 # restapi-items
 Rest API web application for my technical exam.
-Flask, React.js, and SQLite (development)
+Flask, React.js, Azure MySQL (Deployment), and SQLite (Development)
 
 ### Frontend
-React 19.0.0, Shadcn, tanstack-router, and axios
+React 19.0.0 
+TypeScript - A devtool for safe typing.
+
+UI:
+I used Shadcn , a react component library that can be customized, I used this to speed up the UI building process, together with other packages: 
+- React Hot Toast for user notification.
+- React Spinners, loading indication.
+- Tailwindcss for css styling.
+
+Router:
+I used TanStack-router to manage routes and block users from accessing certain routes when they're not authenticated.
+
+Frontend endpoints:
+/
+/login/
+/register/
+/item/$id/
+/create-item/
+
+Note: 
+    Since I am using github pages for frontend deployment it serves at: 
+    https://hannah01-20.github.io/restapi-items/
+    then you access the other routes like:
+    https://hannah01-20.github.io/restapi-items/login/
+    this will break the page and you will get 404 File not Found.
+    
+Fetching:
+I used axios, a fetching library.
 
 #### Run in local
 Development mode
@@ -17,16 +44,24 @@ If you want to run in production mode
 
 ### Backend
 Required: Python 3.11.1
+For this backend I used Flask, a web framework in python that can handle APIs, services, and database interaction.
+Together with other library extensions:
+- flask restful for RestAPI.
+- flask jwt extension for JWT authentication.
+- flask sqlalchemy for Database connection.
+- flask cors for Cross Origin Resource Sharing and security purposes.
+- flask migrate to track the changes in models and apply these changes to database.
 
 Features:
 - CRUD on items
-- Authentication (JWT)
+- JWT Authentication (GET, POST)
 
 The backend has the following endpoints:
 - GET, POST /api/items/
 - GET, PUT, DELETE /api/items/< id >/
 - GET, POST /api/users/
 - POST /api/login/
+- POST /api/logout/
 
 The /api/items/ and /api/items/< id > endpoints can only be access when authenticated,
 if you wanted to access it please procceed to log in to get the access token, and put it in request header Authorization, like this:
@@ -43,8 +78,8 @@ Run in CMD
 - `pip install -r requirements.txt`
 - `python app.py`
 
-For database, I only use SQLite3
-please execute this command to generate SQLite3 ande create items and users table
+For database, I only use SQLite3 however, in deployment I used Azure MySQL.
+please execute this command to generate SQLite3 and create items and users table.
 - `python db.py` Reminder you need to be inside of backend directory.
 
 If you ever want to make changes to models and wanted these changes reflected to SQLite3 database, run these commands.

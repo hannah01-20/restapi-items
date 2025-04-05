@@ -14,7 +14,11 @@ app.config.from_object('src.config') # CONFIGURATIONS OF THE WEB APP
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 api = Api(app)
-cors = CORS(app, resources={r"/api/*": {"origins": [app.config.get("FRONTEND_URL")]}})
+cors = CORS(app, resources={r"/api/*": {
+    "origins": [
+        app.config.get("FRONTEND_URL"),
+        "http://localhost:5173",
+        ]}})
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 jwt = JWTManager(app)
 ma = Marshmallow(app)
