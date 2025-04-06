@@ -1,3 +1,5 @@
+// REUSABLE COMPONENT THAT DISPLAYS ITEM INFO
+
 import { Link } from "@tanstack/react-router";
 
 import { 

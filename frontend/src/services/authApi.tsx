@@ -1,3 +1,6 @@
+// AUTHENTICATION API CALLS
+// LOGIN, LOGOUT, REGISTER
+
 import { API } from "./api";
 import toast from "react-hot-toast";
 

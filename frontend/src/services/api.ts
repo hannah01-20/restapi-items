@@ -1,5 +1,8 @@
+// SERVICE DIRECTORY IS WHERE THE API CALLS ARE MADE
+
 import axios from 'axios';
 
+// Create an instance of axios with default settings
 export const API = axios.create({
     baseURL:  'http://localhost:5000',
     headers: {
@@ -7,6 +10,7 @@ export const API = axios.create({
     },
 })
 
+// Add a request interceptor to include the access token in the headers when it's available
 API.interceptors.request.use(
     (config) => {
         const access = localStorage.getItem('access');

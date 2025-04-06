@@ -1,9 +1,11 @@
-
+// THIS IS THE INDEX ROOT "/" THAT WILL DISPLAY USER'S ITEMS
 import Index from '@/pages/Index'
 import { getItems } from '@/services/itemApi'
 import { getUserData } from '@/services/userApi'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 
+// BEFORE THIS ROUTE RENDERS THE COMPONENT,
+// IT WILL CHECK IF THE USER IS AUTHENTICATED
 export const Route = createFileRoute('/')({
   beforeLoad: ()=> {
     const access = localStorage.getItem('access')

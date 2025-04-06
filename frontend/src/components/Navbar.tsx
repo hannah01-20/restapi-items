@@ -1,3 +1,7 @@
+// USER NAVIGATION BAR WITH ITEM AND LOGOUT BUTTONS
+// ITEM BUTTON HAS A LINK TO THE INDEX PAGE "/"
+// LOGOUT BUTTON WILL CALL THE LOGOUT FUNCTION FROM authApi.ts
+
 import { logout } from "@/services/authApi"
 import { Button } from "./ui/button"
 import { Link } from "@tanstack/react-router"

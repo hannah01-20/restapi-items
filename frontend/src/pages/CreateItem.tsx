@@ -1,3 +1,5 @@
+// PAGE FOR CREATING A NEW ITEM
+
 import ItemForm from "@/components/forms/ItemForm"
 import Navbar from "@/components/Navbar"
 import { addItem } from "@/services/itemApi"

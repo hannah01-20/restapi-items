@@ -1,4 +1,4 @@
-
+// WHEN USER ENTER NONE EXISTING ROUTE, THIS PAGE WILL BE DISPLAYED
 
 function NotFound() {
   return (

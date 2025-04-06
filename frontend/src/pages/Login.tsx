@@ -1,3 +1,5 @@
+// LOGIN PAGE
+
 import LoginForm from "@/components/forms/LoginForm"
 
 function Login() {

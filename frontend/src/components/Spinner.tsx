@@ -1,3 +1,5 @@
+// LOADING SPINNER COMPONENT, WHEN USER PAGE IS LOADING IT WILL DISPLAY THIS SPINNER
+
 import { DotLoader } from "react-spinners"
 
 function Spinner(){

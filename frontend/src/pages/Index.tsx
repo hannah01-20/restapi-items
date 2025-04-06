@@ -1,3 +1,5 @@
+// INDEX PAGE, DISPLAYING USER'S ITEMS
+
 import Addbutton from "@/components/Addbutton"
 import ItemCard from "@/components/ItemCard"
 import Navbar from "@/components/Navbar"

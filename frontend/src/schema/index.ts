@@ -1,3 +1,5 @@
+// VALIDATION FOR USER INPUTS IN FORMS
+// REGISTER, LOGIN, ITEM
 import * as z from "zod";
 
 export const RegisterSchema = z.object({

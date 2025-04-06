@@ -1,3 +1,5 @@
+// THIS IS THE ROUTE FOR ITEM /item/:id
+
 import Item from '@/pages/Item'
 import { getItem } from '@/services/itemApi'
 import { createFileRoute, redirect } from '@tanstack/react-router'

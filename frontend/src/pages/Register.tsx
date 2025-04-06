@@ -1,3 +1,5 @@
+// REGISTER PAGE
+
 import RegisterForm from "@/components/forms/RegisterForm"
 
 

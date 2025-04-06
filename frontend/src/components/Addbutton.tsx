@@ -1,3 +1,6 @@
+// THIS IS THE ADD BUTTON COMPONENT, WHEN USER INREACT WITH THIS BUTTON,
+// IT WILL REDIRECT USER TO THE CREATE ITEM PAGE
+
 import { Link } from "@tanstack/react-router"
 
 function Addbutton() {
