@@ -7,6 +7,7 @@ import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { z } from "zod"
 import { register } from "@/services/authApi"
+import toast from "react-hot-toast"
 
 function RegisterForm() {
   const form = useForm({
@@ -19,7 +20,21 @@ function RegisterForm() {
     },
   })
 
-  const onSubmit = (data: z.infer<typeof RegisterSchema>) => {register(data)}
+  const onSubmit = (data: z.infer<typeof RegisterSchema>) => {
+    
+    toast.promise(
+      register(data),
+      {
+        loading: "Creating account...",
+        success: () => {
+          return "Account created successfully."
+        },
+        error: () => {
+          return "Error creating account."
+        },
+      }
+    )
+  }
   return (
     <div>
       <CardWrapper title="Register" label="Create an account" otherlink="/login" otherlinktext="Have an account? Login now.">

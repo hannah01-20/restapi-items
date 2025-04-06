@@ -11,15 +11,15 @@ interface RegisterData {
     re_password: string;
 }
 
-export const register = async (data: RegisterData)=>{
+export const register = async (data: RegisterData) =>{
     await API.post("/api/users/", data).
     then((response: any) => {
-        console.log(response.data);
-        toast.success(response.data.message);
+        // toast.success(response.data.message);
+        return response
     }).
     catch((error: any) => {
         console.log(error.response.data);
-        toast.error(error.response.data.message);
+        return error
     });
 }
 

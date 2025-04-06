@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Create an instance of axios with default settings
 export const API = axios.create({
-    baseURL:  'http://localhost:5000',
+    baseURL:  import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000',
     headers: {
         'Content-Type': 'application/json',
     },
