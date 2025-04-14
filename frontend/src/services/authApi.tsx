@@ -19,7 +19,7 @@ export const register = async (data: RegisterData) =>{
     }).
     catch((error: any) => {
         console.log(error.response.data);
-        return error
+        throw error
     });
 }
 

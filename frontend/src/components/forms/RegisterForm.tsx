@@ -29,8 +29,8 @@ function RegisterForm() {
         success: () => {
           return "Account created successfully."
         },
-        error: () => {
-          return "Error creating account."
+        error: (err) => {
+          return err.response.data.message
         },
       }
     )
