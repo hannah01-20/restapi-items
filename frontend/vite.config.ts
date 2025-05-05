@@ -13,6 +13,11 @@ export default defineConfig({
     }),
     react(), 
     tailwindcss()],
+
+  server: {
+    open: true
+  },
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
