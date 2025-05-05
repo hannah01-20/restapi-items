@@ -12,7 +12,7 @@ const router = createRouter({
   routeTree,
   defaultNotFoundComponent: NotFound,
   defaultPendingComponent: Spinner,
-  basepath: '/restapi-items/',
+  // basepath: '/restapi-items/',
  })
 
 // Register the router instance for type safety
