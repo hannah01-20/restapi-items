@@ -1,7 +1,10 @@
 # restapi-items
 Rest API web application for my technical exam.
-Flask, React.js, Azure MySQL (Deployment), and SQLite (Development)
+Flask, React.js, FreeSQLDatabase (Deployment), and SQLite (Development)
 
+Live at: https://items.hannahflorano.me
+
+Highlights the power of REST API in CRUD operations on items.
 ### Frontend
 React 19.0.0 
 
@@ -22,17 +25,6 @@ Frontend endpoints:
 - /register/
 - /item/$id/
 - /create-item/
-
-Note: 
-    Since I am using github pages for frontend deployment it serves at: 
-
-    https://hannah01-20.github.io/restapi-items/
-
-    then you reload or access the other routes directly to url like:
-
-    https://hannah01-20.github.io/restapi-items/login/
-    
-    this will break the page and you will get 404 File not Found.
 
 Fetching:
 I used axios, a fetching library.
@@ -73,7 +65,7 @@ if you wanted to access it please procceed to log in to get the access token, an
 
 Authorization: Bearer < access_token >
 
-Reminder: access_token expires in 5 minutes, if it did just login in again to get a new one
+Reminder: access_token expires in 5 minutes. If it did, just login in again to get a new one
 
 #### Run in local
 It's recommended to have a virtual environment on to manage dependencies.
@@ -83,7 +75,7 @@ Run in CMD
 - `pip install -r requirements.txt`
 - `python app.py`
 
-For database, I only use SQLite3 however, in deployment I used Azure MySQL.
+For database, I only use SQLite3 however, in deployment I used FreeSQLDatabase.
 please execute this command to generate SQLite3 and create items and users table.
 - `python db.py` Reminder you need to be inside of backend directory.
 
@@ -93,7 +85,4 @@ If you ever want to make changes to models and wanted these changes reflected to
 - `flask db upgrade` to apply the changes to database
 
 #### Test unit
-As of the moment, unit testing is not done yet.
-To run unit tests:
-- From backend directory `cd test`
-- `pytest`
+To be continue...
