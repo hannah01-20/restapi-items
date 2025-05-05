@@ -17,7 +17,8 @@ api = Api(app)
 cors = CORS(app, resources={r"/api/*": {
     "origins": [
         app.config.get("FRONTEND_URL"),
-        "http://localhost:5173",
+        "http://localhost:5173", # For Development
+        "http://localhost:4173", # For Production Preview
         ]}})
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 jwt = JWTManager(app)
